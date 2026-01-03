@@ -11,25 +11,25 @@ The biggest takeaway was discovering the value of the "nuclear option": ignoring
 
 Here is a shortlist of some of my favorite commands that I keep in my book:
 
-tcpdump -r traffic.pcap -A -n	
+`tcpdump -r traffic.pcap -A -n`	
     Reads the pcap (-r), prints payloads in ASCII (-A), and skips DNS resolution (-n).
 
-tcpdump ... link-type LINUX_SLL2	
+`tcpdump ... link-type LINUX_SLL2`	
     You'll see this warning for Cooked Captures. It means "Ignore MAC headers, look at payloads."
 
-tshark -r traffic.pcap -q -z io,phs	
+`tshark -r traffic.pcap -q -z io,phs`	
     Protocol Hierarchy. Shows which protocols (TCP, UDP, HTTP, FTP) are present by percentage.
 
-tshark -r traffic.pcap -q -z conv,ip	
+`tshark -r traffic.pcap -q -z conv,ip`	
     Conversations. Lists all IP-to-IP conversations, sorted by volume. Good for spotting top talkers.
 
-tshark -Y 'frame contains "pass"'	
+`tshark -Y 'frame contains "pass"'`	
     Deep Search. Filters for any packet containing the string "pass" in the payload.
 
-tshark ... -T fields -e ip.src -e tcp.stream	
+`tshark ... -T fields -e ip.src -e tcp.stream`	
     Field Extraction. Prints only the specific columns you want (Source IP, Stream ID).
 
-tshark ... --export-objects ftp-data,output_dir	
+`tshark ... --export-objects ftp-data,output_dir`	
     File Carving. Attempts to automatically extract files from a specific protocol (ftp-data, http, tftp).
 
 This was an eye opening experience for me and I look forward to participating again later this year. I encourage everybody who has even the smallest interest in cybersecurity to participate. It is worth more than you can imagine. 
